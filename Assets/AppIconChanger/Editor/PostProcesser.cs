@@ -36,7 +36,7 @@ namespace AppIconChanger.Editor
                 var contentsJson = ContentsJsonText;
                 contentsJson = contentsJson.Replace("iPhoneContents", PlayerSettings.iOS.targetDevice == iOSTargetDevice.iPhoneOnly || PlayerSettings.iOS.targetDevice == iOSTargetDevice.iPhoneAndiPad ? ContentsiPhoneJsonText : string.Empty);
                 contentsJson = contentsJson.Replace("iPadContents", PlayerSettings.iOS.targetDevice == iOSTargetDevice.iPadOnly || PlayerSettings.iOS.targetDevice == iOSTargetDevice.iPhoneAndiPad ? ContentsiPadJsonText : string.Empty);
-                File.WriteAllText(contentsJsonPath, contentsJson, Encoding.UTF8);
+                File.WriteAllText(contentsJsonPath, contentsJson, new UTF8Encoding(false));
 
                 // Pass the resampling method from the asset to the SaveIcon method
                 var algorithm = alternateIcon.resamplingMethod;
